@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0b3d2e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Bierwagen">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <title>Bierwagen</title>
+</head>
+<body>
+  <header class="topbar">
+    <h1 id="view-title">Bestellung</h1>
+    <nav class="tabs">
+      <button class="tab" data-view="order" aria-label="Bestellung">🍺</button>
+      <button class="tab" data-view="history" aria-label="Verlauf">📜</button>
+      <button class="tab" data-view="settings" aria-label="Einstellungen">⚙️</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="view-order" class="view">
+      <div id="drink-grid" class="grid"></div>
+      <div class="bottom-bar">
+        <div class="total">
+          <span class="label">Summe</span>
+          <span><span id="total-bons">0</span> <span class="unit">Bons</span></span>
+        </div>
+        <button id="finish-btn" class="primary-btn" disabled>Abschließen</button>
+      </div>
+    </section>
+
+    <section id="view-summary" class="view">
+      <div id="summary-list" class="summary-list"></div>
+      <div class="summary-total">
+        <span>Gesamt</span>
+        <strong><span id="summary-total">0</span> Bons</strong>
+      </div>
+      <div class="actions">
+        <button id="back-edit-btn" class="secondary-btn">Bearbeiten</button>
+        <button id="new-order-btn" class="primary-btn">Neue Bestellung</button>
+      </div>
+    </section>
+
+    <section id="view-history" class="view">
+      <p class="hint">Letzte 10 abgeschlossene Bestellungen. Antippen, um sie erneut zu öffnen.</p>
+      <div id="history-list" class="history-list"></div>
+    </section>
+
+    <section id="view-settings" class="view">
+      <h2>Getränke</h2>
+      <p class="hint">↑↓ verschieben · Tippen zum Bearbeiten · 🗑 löschen</p>
+      <div id="drink-config-list" class="config-list"></div>
+      <div class="add-row">
+        <input id="new-drink-name" type="text" placeholder="Neues Getränk" autocomplete="off" autocapitalize="words">
+        <input id="new-drink-price" type="number" min="0" step="1" value="2" inputmode="numeric">
+        <button id="add-drink-btn" class="primary-btn" aria-label="Hinzufügen">＋</button>
+      </div>
+
+      <h2>Daten</h2>
+      <div class="danger-row">
+        <button id="reset-history-btn" class="danger-btn">Verlauf löschen</button>
+        <button id="reset-all-btn" class="danger-btn">Alles zurücksetzen</button>
+      </div>
+      <p class="hint version">Bierwagen · läuft offline · Daten bleiben auf diesem Gerät</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

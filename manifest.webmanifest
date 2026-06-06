@@ -1,0 +1,14 @@
+{
+  "name": "Bierwagen",
+  "short_name": "Bierwagen",
+  "description": "Bestellungen & Bons-Abrechnung für den Bierwagen",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1411",
+  "theme_color": "#0b3d2e",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
