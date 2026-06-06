@@ -1,9 +1,23 @@
 const KEY = { drinks: 'bw_drinks_v1', current: 'bw_current_v1', history: 'bw_history_v1' };
 
-const DEFAULT_NAMES = [
-  'Bier','Cola Bier','Radler','Alsterwasser','Schuss','Malzbier',
-  'Fanta','Sprite','Cola','Cola Zero','Wasser','Korn',
-  'Mariacron','Mariacron Cola','Flimm','Brezel'
+const DEFAULT_DRINKS = [
+  { name: 'Bier',           price: 2 },
+  { name: 'Cola Bier',      price: 2 },
+  { name: 'Radler',         price: 2 },
+  { name: 'Cola',           price: 2 },
+  { name: 'Cola Zero',      price: 2 },
+  { name: 'Fanta',          price: 2 },
+  { name: 'Sprite',         price: 2 },
+  { name: 'Wasser',         price: 1 },
+  { name: 'Mariacron Cola', price: 5 },
+  { name: 'Fanta Korn',     price: 5 },
+  { name: 'Flimm',          price: 2 },
+  { name: 'Brezel',         price: 2 },
+  { name: 'Mariacron',      price: 3 },
+  { name: 'Korn',           price: 3 },
+  { name: 'Schuss',         price: 2 },
+  { name: 'Malzbier',       price: 2 },
+  { name: 'Alsterwasser',   price: 2 },
 ];
 
 function uid() { return 'd_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
@@ -15,7 +29,7 @@ function escapeHtml(s) {
 
 let drinks = load(KEY.drinks, null);
 if (!drinks || !Array.isArray(drinks) || drinks.length === 0) {
-  drinks = DEFAULT_NAMES.map(name => ({ id: uid(), name, price: 2 }));
+  drinks = DEFAULT_DRINKS.map(d => ({ id: uid(), name: d.name, price: d.price }));
   save(KEY.drinks, drinks);
 }
 let current = load(KEY.current, {});
